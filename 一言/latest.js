@@ -33,7 +33,7 @@ class Im3xWidget {
   async renderSmall () {
     let w = new ListWidget()
     let data = await this.getData()
-    let tt = getType(data['type'])
+    let tt = await this.getType(data['type'])
     let titleTXT = '一言·'+ tt
     w = await this.renderHeader(w, 'https://txc.gtimg.com/data/285778/2020/1012/f9cf50f08ebb8bd391a7118c8348f5d8.png', titleTXT) 
     let content = w.addText(data['hitokoto'])
