@@ -32,8 +32,10 @@ class Im3xWidget {
    */
   async renderSmall () {
     let w = new ListWidget()
-    w = await this.renderHeader(w, 'https://txc.gtimg.com/data/285778/2020/1012/f9cf50f08ebb8bd391a7118c8348f5d8.png', '一言·hitokoto')
     let data = await this.getData()
+    let tt = getType(data['type'])
+    let titleTXT = '一言·'+ tt
+    w = await this.renderHeader(w, 'https://txc.gtimg.com/data/285778/2020/1012/f9cf50f08ebb8bd391a7118c8348f5d8.png', titleTXT) 
     let content = w.addText(data['hitokoto'])
     content.font = Font.boldSystemFont(16)
     w.addSpacer(10)
@@ -70,27 +72,7 @@ class Im3xWidget {
     _icon.imageSize = new Size(14, 14)
     _icon.cornerRadius = 4
     header.addSpacer(10)
-    switch (data['type']) {
-        case "a":
-            let titleType = '动画'
-            break
-        case "b":
-            let titleType = '漫画'
-            break
-        case "d":
-            let titleType = '文学'
-            break
-        case "h":
-            let titleType = '影视'
-            break
-        case "i":
-            let titleType = '诗词'
-            break
-        case "k":
-            let titleType = '哲学'
-            break
-    }
-    let _title = header.addText(title + titleType)
+    let _title = header.addText(title)
     // _title.textColor = Color.white()
     _title.textOpacity = 0.7
     _title.font = Font.boldSystemFont(12)
@@ -191,6 +173,31 @@ class Im3xWidget {
         Safari.openInApp("https://github.com/Boycottangent/Scriptables/tree/main/%E4%B8%80%E8%A8%80", false)
         break
     }
+  }
+  // 将一言类型添加至 title
+  async getType (type) {
+    let titleType = ''  
+    switch (type) {
+      case "a":
+        titleType = '动画'
+        break
+      case "b":
+        titleType = '漫画'
+        break
+      case "d":
+        titleType = '文学'
+        break
+      case "h":
+        titleType = '影视'
+        break
+      case "i":
+        titleType = '诗词'
+        break
+      case "k":
+        titleType = '哲学'
+        break
+    }
+    return titleType
   }
 
   // 获取跳转自身 urlscheme
