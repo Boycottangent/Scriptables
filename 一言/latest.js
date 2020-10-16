@@ -70,7 +70,27 @@ class Im3xWidget {
     _icon.imageSize = new Size(14, 14)
     _icon.cornerRadius = 4
     header.addSpacer(10)
-    let _title = header.addText(title)
+    switch (data['type']) {
+        case "a":
+            let titleType = '动画'
+            break
+        case "b":
+            let titleType = '漫画'
+            break
+        case "d":
+            let titleType = '文学'
+            break
+        case "h":
+            let titleType = '影视'
+            break
+        case "i":
+            let titleType = '诗词'
+            break
+        case "k":
+            let titleType = '哲学'
+            break
+    }
+    let _title = header.addText(title + titleType)
     // _title.textColor = Color.white()
     _title.textOpacity = 0.7
     _title.font = Font.boldSystemFont(12)
