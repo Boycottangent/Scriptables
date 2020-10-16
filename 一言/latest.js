@@ -35,10 +35,10 @@ class Im3xWidget {
     w = await this.renderHeader(w, 'https://txc.gtimg.com/data/285778/2020/1012/f9cf50f08ebb8bd391a7118c8348f5d8.png', '一言')
     let data = await this.getData()
     let content = w.addText(data['hitokoto'])
-    content.font = Font.lightSystemFont(14)
+    content.font = Font.boldSystemFont(16)
     w.addSpacer(10)
     let footer = w.addText("—— " + data['from'])
-    footer.font = Font.lightSystemFont(10)
+    footer.font = Font.mediumSystemFont(12)
     footer.textOpacity = 0.5
     footer.rightAlignText()
     if (this.loader) w.url = this.getURIScheme("do", data['hitokoto'])
