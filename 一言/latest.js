@@ -32,7 +32,7 @@ class Im3xWidget {
    */
   async renderSmall () {
     let w = new ListWidget()
-    w = await this.renderHeader(w, 'https://txc.gtimg.com/data/285778/2020/1012/f9cf50f08ebb8bd391a7118c8348f5d8.png', '一言')
+    w = await this.renderHeader(w, 'https://txc.gtimg.com/data/285778/2020/1012/f9cf50f08ebb8bd391a7118c8348f5d8.png', '一言·hitokoto')
     let data = await this.getData()
     let content = w.addText(data['hitokoto'])
     content.font = Font.boldSystemFont(16)
@@ -168,7 +168,7 @@ class Im3xWidget {
         Pasteboard.copyString(data)
         break
       case 1:
-        Safari.openInApp("https://github.com/im3x/Scriptables/tree/main/%E4%B8%80%E8%A8%80", false)
+        Safari.openInApp("https://github.com/Boycottangent/Scriptables/tree/main/%E4%B8%80%E8%A8%80", false)
         break
     }
   }
